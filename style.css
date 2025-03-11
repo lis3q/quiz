@@ -112,7 +112,7 @@ body.question-body {
 }
 .question-box .answer:hover,
 .question-box .answer.checked {
-    background: #dadada;
+    background: #b3b3b3;
 }
 .question-box .answer.wrong {
     background: #ff4949;

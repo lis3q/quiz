@@ -20,13 +20,22 @@ const checkQuestion = () => {
     }) 
 }
 
-// Visited question
+// Visited questions
 const questionBtns = document.querySelectorAll(".content .question");
-questionBtns.forEach(btn => 
+
+const visitedQuestions = JSON.parse(localStorage.getItem("visitedQuestions")) || [];
+
+questionBtns.forEach(btn => {
+    if (visitedQuestions.includes(btn.dataset.id)) {
+        btn.classList.add("visited");
+    }
+
     btn.addEventListener("click", () => {
         btn.classList.add("visited");
-}))
 
-function closeTab() {
-    window.close();
-}
+        if (!visitedQuestions.includes(btn.dataset.id)) {
+            visitedQuestions.push(btn.dataset.id);
+            localStorage.setItem("visitedQuestions", JSON.stringify(visitedQuestions));
+        }
+    });
+});
