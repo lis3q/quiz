@@ -39,3 +39,9 @@ questionBtns.forEach(btn => {
         }
     });
 });
+
+// Resetowanie localStorage po kliknięciu w przycisk resetu
+document.getElementById("resetVisited").addEventListener("click", () => {
+    localStorage.removeItem("visitedQuestions");
+    location.reload(); // Odświeżenie strony, aby zresetować oznaczenia
+});
